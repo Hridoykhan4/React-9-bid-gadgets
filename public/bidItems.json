@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "title": "Vintage Leica M3 Camera",
+    "description": "A classic 35mm film camera, highly valued by collectors for its craftsmanship and precision.",
+    "currentBidPrice": 2850,
+    "timeLeft": 2,
+    "bidsCount": 34,
+    "image": "https://i.ibb.co.com/nN1Z54k1/Bid1-min.png"
+  },
+  {
+    "id": "2",
+    "title": "1965 Gibson SG Standard Electric Guitar",
+    "description": "A legendary electric guitar, known for its warm tone and smooth playability. A true piece of rock history.",
+    "currentBidPrice": 2850,
+    "timeLeft": 2,
+    "bidsCount": 29,
+    "image": "https://i.ibb.co.com/N6Xr1py6/Bid2-min.png"
+  },
+  {
+    "id": "3",
+    "title": "Original Apple Macintosh 128K (1984)",
+    "description": "Apple’s first mass-produced computer, the Macintosh 128K, a pivotal piece of computing history.",
+    "currentBidPrice": 2850,
+    "timeLeft": 2,
+    "bidsCount": 42,
+    "image": "https://i.ibb.co.com/KvSDxXv/Bid3-min.png"
+  },
+  {
+    "id": "4",
+    "title": "Rolex Submariner 16610",
+    "description": "Iconic dive watch with automatic movement and stainless steel casing. A collector’s favorite.",
+    "currentBidPrice": 2850,
+    "timeLeft": 2,
+    "bidsCount": 57,
+    "image": "https://i.ibb.co.com/Lz4YbQvX/Bid4-min.png"
+  },
+  {
+    "id": "5",
+    "title": "First Edition ‘The Great Gatsby’ by F. Scott Fitzgerald",
+    "description": "A rare first edition of Fitzgerald’s timeless masterpiece, preserved in excellent condition.",
+    "currentBidPrice": 2850,
+    "timeLeft": 2,
+    "bidsCount": 21,
+    "image": "https://i.ibb.co.com/5xGRfjsh/Bid6-min.png"
+  },
+  {
+    "id": "6",
+    "title": "Mid-Century Modern Eames Lounge Chair",
+    "description": "An authentic Eames lounge chair — the epitome of comfort and modern design elegance.",
+    "currentBidPrice": 2850,
+    "timeLeft": 2,
+    "bidsCount": 18,
+    "image": "https://i.ibb.co.com/n4ffQXp/Bid5-min.png"
+  },
+  {
+    "id": "7",
+    "title": "Banksy Original Screen Print",
+    "description": "A stunning screen print inspired by Banksy’s street art, symbolizing hope through the beauty of a flower bouquet.",
+    "currentBidPrice": 2850,
+    "timeLeft": 2,
+    "bidsCount": 25,
+    "image": "https://i.ibb.co.com/JR4xr5j7/Bid7-min.png"
+  }
+]
