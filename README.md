@@ -1,1 +1,1 @@
-https://previous-fairies.surge.sh/
+gadgetbids.netlify.app
