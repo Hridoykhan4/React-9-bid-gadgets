@@ -1,16 +1,25 @@
 import { use, useEffect, useState } from "react";
 import { Heart } from "lucide-react";
+import { getStoredCart } from "../../utils/localDB";
 
-const AuctionTable = ({ auctionPromise, handleAddToFavorite, favorites }) => {
+const AuctionTable = ({
+  auctionPromise,
+  handleAddToFavorite,
+  favorites,
+  setFavorites,
+}) => {
   const items = use(auctionPromise);
-  const [bidItems, setBidItems] = useState(items || []);
+  const [bidItems, setBidItems] = useState(() => items || []);
 
-  const handleClick = (item) => {
-    handleAddToFavorite(item);
-    setBidItems((prev) =>
-      prev.map((p) => (p.id === item.id ? { ...p, isDisabled: true } : p))
-    );
-  };
+  useEffect(() => {
+    const cart = getStoredCart();
+    const matchedItems = [];
+    cart.forEach((id) => {
+      const matched = items.find((item) => item.id === id);
+      if (matched) matchedItems.push(matched);
+    });
+    setFavorites(matchedItems);
+  }, [items, setFavorites]);
 
   useEffect(() => {
     setBidItems((prev) =>
@@ -35,60 +44,58 @@ const AuctionTable = ({ auctionPromise, handleAddToFavorite, favorites }) => {
         </thead>
 
         <tbody>
-          {bidItems?.map((item) => {
-            return (
-              <tr
-                key={item.id}
-                className="hover:bg-gray-50 transition-colors duration-200"
-              >
-                {/* Item info */}
-                <td>
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={item?.image}
-                      className="w-14 h-14 rounded-full object-cover border"
-                      alt={item?.title}
-                    />
-                    <div>
-                      <div className="font-semibold text-gray-800">
-                        {item?.title}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {item?.category || "Collectible"}
-                      </div>
+          {bidItems?.map((item) => (
+            <tr
+              key={item.id}
+              className="hover:bg-gray-50 transition-colors duration-200"
+            >
+              {/* Item info */}
+              <td>
+                <div className="flex items-center gap-3">
+                  <img
+                    src={item?.image}
+                    className="w-14 h-14 rounded-full object-cover border"
+                    alt={item?.title}
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-800">
+                      {item?.title}
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      {item?.category || "Collectible"}
                     </div>
                   </div>
-                </td>
+                </div>
+              </td>
 
-                {/* Current Bid */}
-                <td className="font-semibold text-gray-700">
-                  {item?.currentBidPrice}
-                </td>
+              {/* Current Bid */}
+              <td className="font-semibold text-gray-700">
+                {item?.currentBidPrice}
+              </td>
 
-                {/* Time Left */}
-                <td className="text-gray-600">{item?.timeLeft}</td>
+              {/* Time Left */}
+              <td className="text-gray-600">{item?.timeLeft}</td>
 
-                {/* Favorite button */}
-                <td className="text-center">
-                  <button
-                    onClick={() => handleClick(item)}
-                    disabled={item?.isDisabled}
-                    className={`btn btn-sm transition-all duration-200 ${
-                      item?.isDisabled
-                        ? "bg-pink-100 text-pink-500  cursor-not-allowed"
-                        : "hover:bg-pink-50 text-gray-600 cursor-pointer"
+              {/* Favorite button */}
+              <td className="text-center">
+                <button
+                  onClick={() => handleAddToFavorite(item)}
+                  disabled={item?.isDisabled}
+                  className={`btn btn-sm transition-all duration-200 ${
+                    item?.isDisabled
+                      ? "bg-pink-100 text-pink-500  cursor-not-allowed"
+                      : "hover:bg-pink-50 text-gray-600 cursor-pointer"
+                  }`}
+                >
+                  <Heart
+                    className={`w-5 h-5 ${
+                      item?.isDisabled ? "fill-pink-500 cursor-not-allowed text-pink-500 " : ""
                     }`}
-                  >
-                    <Heart
-                      className={`w-5 h-5 ${
-                        item?.isDisabled ? "fill-pink-500 text-pink-500 " : ""
-                      }`}
-                    />
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
+                  />
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

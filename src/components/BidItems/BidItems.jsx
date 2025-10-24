@@ -32,7 +32,7 @@ const BidItems = ({ bidsAmounts, favorites, handleRemoveFavorites }) => {
 
             <div>
               <button
-                onClick={() => handleRemoveFavorites(f.id, f.currentBidPrice)}
+                onClick={() => handleRemoveFavorites(f.id)}
                 className="btn btn-xs"
               >
                 <X></X>
